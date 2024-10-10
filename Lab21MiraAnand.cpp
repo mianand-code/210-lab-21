@@ -31,10 +31,12 @@ private:
 public:
     // creation of a default constructor, Goat()
     // DESCRIPTION: initializes age, name, and color to random values/selections
-    // - also creates, initializes, and assigns 2 new dynamic arrays
+    // - also creates, initializes, and assigns 2 dynamic arrays
+    // the 2 dynamic arrays - "names" and "colors" - are initialized with lists of names and colors. Lists were randomly generated
+    // name and color of goat will be randomly selected from these dynamic arrays
     // ARGUMENTS: no arguments/parameters
     // RETURNS: no return type
-
+    names = new string[SIZE]
 };
 
 class DoublyLinkedList {
