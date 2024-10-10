@@ -2,10 +2,19 @@
 // Module 7, Lesson: Doubly-Linked Lists & Class Destructors, Assignment: Goat Herd Manager 3000
 // IDE used: Visual Studio Code for Mac
 
+#include <cstdlib> // needed to generate a random number
+#include <ctime> // needed to generate a random number
 #include <iostream>
+#include <string>
 using namespace std;
 
-const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+// declaration and initialization of const int variables
+// range of Goat objects to be created should be within between 5 - 20
+// range of age to be assigned to a Goat object should be between 1 - 20
+const int SIZE = 15; // represents array size (names, colors)
+const int MIN_OBJECT = 5; // represents the minimum # of Goat objects to be created, will be used to generate a random # in main()
+const int MAX_OBJECT = 20; // represents the maximum # of Goat objects to be created, will be used to generate a random # in main()
+const int AGE_MAX = 20; // represents the maximum age to be assigned to a Goat object, will be used to generate a random #
 
 class DoublyLinkedList {
 private:
@@ -152,6 +161,8 @@ public:
 // Driver program
 int main() 
 {
+    srand(time(0)); // needed as the first line in main() to generate random numbers
+    
     DoublyLinkedList list;
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
 
@@ -168,6 +179,6 @@ int main()
     list.~DoublyLinkedList();
     cout << "List forward: ";
     list.print();
-    
+
     return 0;
 }
