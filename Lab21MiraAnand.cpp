@@ -24,19 +24,23 @@ private:
     string name; // to hold goat's name
     string color; // to hold color of goat
 
-    string * names; // string array that holds a list of names
-    string * colors; // string array that holds a list of colors
+    // creation and initialization of a 15-element string array that holds a list of names
+    string names[SIZE] = {"Billy", "Nanny", "Daisy", "Ginger", "Coco", 
+                        "Luna", "Misty", "Shadow", "Pepper", "Max", 
+                        "Fluffy", "Snowy", "Bella", "Rocky", "Duke"};
+    // creation and initialization of a 15-element string array that holds a list of colors
+    string colors[SIZE] = {"Black", "White", "Brown", "Gray", "Gold", 
+                        "Red", "Blue", "Yellow", "Pink", "Purple", 
+                        "Green", "Mauve", "Teal", "Orange", "Tan"};
 
 // public member functions
 public:
     // creation of a default constructor, Goat()
     // DESCRIPTION: initializes age, name, and color to random values/selections
-    // - also creates, initializes, and assigns 2 dynamic arrays
-    // the 2 dynamic arrays - "names" and "colors" - are initialized with lists of names and colors. Lists were randomly generated
-    // name and color of goat will be randomly selected from these dynamic arrays
+    // name and color of goat will be randomly selected from "names" and "colors" arrays
     // ARGUMENTS: no arguments/parameters
     // RETURNS: no return type
-    names = new string[SIZE]
+
 };
 
 class DoublyLinkedList {
