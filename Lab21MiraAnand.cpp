@@ -59,6 +59,35 @@ public:
     // - string c, represents the color of the goat
     // RETURNS: no return type
     Goat(int a, string n, string c)     { age = a; name = n; color = c; }
+
+    // creating all setters together, to keep it organized
+    // void setAge(int a), void setName(string n), void setColor(string c) function header
+    // DESCRIPTION: these functions will "set" the age, name, and color for each Goat object
+    // ARGUMENTS: int a, represents the goat's age
+    // - string n, represents the goat's name
+    // - string c, represents the color of the goat
+    // RETURNS: nothing, void functions
+    void setAge(int a)                  { age = a; }
+    void setName(string n)              { name = n; }
+    void setColor(string c)             { color = c; }
+
+    // creating all getters together, to keep it organized
+    // int getAge() const, string getName() const, string getColor() const function header
+    // DESCRIPTION: these functions will "get" the age, name, and color values for each Goat object
+    // ARGUMENTS: no arguments/parameters
+    // RETURNS: the int value for age
+    // - the string value for name
+    // - the string value for color
+    // adding a trailing const to each, since getters do not change an object's data
+    int getAge() const                  { return age; }
+    string getName() const              { return name; }
+    string getColor() const             { return color; }
+
+    // creating a member print() method to print the object's data
+    // void print() function header
+    // DESCRIPTION:
+    // ARGUMENTS: no arguments/parameters
+    // RETURNS: nothing, void function
 };
 
 class DoublyLinkedList {
