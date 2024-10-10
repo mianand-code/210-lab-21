@@ -17,6 +17,7 @@ const int MAX_OBJECT = 20; // represents the maximum # of Goat objects to be cre
 const int AGE_MAX = 20; // represents the maximum age to be assigned to a Goat object, will be used to generate a random #
 
 // creation of Goat Class
+// also including setters, getters, and a member print() method so that the class is fully functional, even on its own
 class Goat {
 // private member variables
 private:
@@ -43,9 +44,21 @@ public:
     Goat()
     {
         age = rand() % AGE_MAX + 1; // random assignment of a age between 1 - 20
-        name = names[rand() % SIZE]; // random selection of a name within the "names" array and assignment to "name"
+        // random selection of a name within the "names" array and assignment to "name"
+        // rand() % SIZE will pick an element from the array within the range 0 - 14
+        // this is accurate because arrays start at index 0
+        name = names[rand() % SIZE]; 
+        color = colors[rand() % SIZE]; // random selection of a color within the "colors" array and assignment to "color"
     }
 
+    // creation of a full parameter constructor, Goat(int a, string n, string c)
+    // inline because it is 1 line only
+    // DESCRIPTION: initializes age, name, and color all by parameter
+    // ARGUMENTS: int a, represents the goat's age
+    // - string n, represents the goat's name
+    // - string c, represents the color of the goat
+    // RETURNS: no return type
+    Goat(int a, string n, string c)     { age = a; name = n; color = c; }
 };
 
 class DoublyLinkedList {
