@@ -16,6 +16,27 @@ const int MIN_OBJECT = 5; // represents the minimum # of Goat objects to be crea
 const int MAX_OBJECT = 20; // represents the maximum # of Goat objects to be created, will be used to generate a random # in main()
 const int AGE_MAX = 20; // represents the maximum age to be assigned to a Goat object, will be used to generate a random #
 
+// creation of Goat Class
+class Goat {
+// private member variables
+private:
+    int age; // to hold goat's age
+    string name; // to hold goat's name
+    string color; // to hold color of goat
+
+    string * names; // string array that holds a list of names
+    string * colors; // string array that holds a list of colors
+
+// public member functions
+public:
+    // creation of a default constructor, Goat()
+    // DESCRIPTION: initializes age, name, and color to random values/selections
+    // - also creates, initializes, and assigns 2 new dynamic arrays
+    // ARGUMENTS: no arguments/parameters
+    // RETURNS: no return type
+
+};
+
 class DoublyLinkedList {
 private:
     struct Node 
