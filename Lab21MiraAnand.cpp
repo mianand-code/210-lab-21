@@ -40,6 +40,11 @@ public:
     // name and color of goat will be randomly selected from "names" and "colors" arrays
     // ARGUMENTS: no arguments/parameters
     // RETURNS: no return type
+    Goat()
+    {
+        age = rand() % AGE_MAX + 1; // random assignment of a age between 1 - 20
+        name = names[rand() % SIZE]; // random selection of a name within the "names" array and assignment to "name"
+    }
 
 };
 
