@@ -85,19 +85,29 @@ public:
 
     // creating a member print() method to print the object's data
     // void print() function header
-    // DESCRIPTION:
+    // DESCRIPTION: this function outputs the age, name, and color for each Goat object
     // ARGUMENTS: no arguments/parameters
     // RETURNS: nothing, void function
+    void print()
+    {
+        cout << "GOAT:" << endl;
+        cout << "Age: " << age << ", ";
+        cout << "Name: " << name << ", ";
+        cout << "Color: " << color << endl;
+        cout << endl;
+    }
 };
 
+// creation of DoublyLinkedList class
 class DoublyLinkedList {
+// private member variables
 private:
     struct Node 
     {
-        int data;
+        Goat data; // modifying from int to "Goat" object
         Node* prev;
         Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) 
+        Node(Goat val, Node* p = nullptr, Node* n = nullptr) 
         {
             data = val;
             prev = p;
