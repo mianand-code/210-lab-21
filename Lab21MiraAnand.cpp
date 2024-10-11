@@ -104,12 +104,12 @@ public:
 class DoublyLinkedList {
 // private member variables
 private:
-    struct Node 
+    struct Node // struct defintion within class
     {
-        Goat data; // modifying from int to "Goat" object
-        Node* prev;
-        Node* next;
-        Node(Goat info, Node* p = nullptr, Node* n = nullptr) // modifying constructor from int parameter to "Goat" object parameter
+        Goat data; // modifying from int value to "Goat" object
+        Node* prev; // pointer to previous node
+        Node* next; // pointer to next node
+        Node(Goat info, Node* p = nullptr, Node* n = nullptr) // modifying struct constructor from int parameter to "Goat" object parameter
         {
             data = info;
             prev = p;
@@ -117,13 +117,18 @@ private:
         }
     };
     
+    // pointers to head and tail
     Node* head;
     Node* tail;
 
 public:
-    // constructor
+    // constructor that initializes the pointers
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
+    // void push_back(Goat info) function header
+    // DESCRIPTION: this function will create a new node, set the value of the new node, and add this new node to the end (tail) of the list
+    // ARGUMENTS: Goat info, which is the Goat object to be added
+    // RETURNS: nothing, void function
     void push_back(Goat info) // modifying from int parameter to "Goat" object parameter
     {
         Node* newNode = new Node(info);
@@ -137,6 +142,10 @@ public:
         }
     }
 
+    // void push_front(Goat info) function header
+    // DESCRIPTION: this function will create a new node, set the value of the new node, and add this new node to the front (head) of the list
+    // ARGUMENTS: Goat info, which is the Goat object to be added
+    // RETURNS: nothing, void function
     void push_front(Goat info) // modifying from int parameter to "Goat" object parameter
     {
         Node* newNode = new Node(info);
@@ -150,6 +159,10 @@ public:
         }
     }
 
+    // void print() function header
+    // DESCRIPTION: 
+    // ARGUMENTS: no arguments/parameters
+    // RETURNS: nothing, void function
     void print() 
     {
         Node* current = head;
@@ -167,6 +180,10 @@ public:
         cout << endl;
     }
 
+    // void print_reverse() function header
+    // DESCRIPTION: 
+    // ARGUMENTS: no arguments/parameters
+    // RETURNS: nothing, void function
     void print_reverse() 
     {
         Node* current = tail;
