@@ -96,11 +96,7 @@ public:
     // RETURNS: nothing, void function
     void printGoat()
     {
-        cout << "GOAT:" << endl;
-        cout << "Age: " << age << ", ";
-        cout << "Name: " << name << ", ";
-        cout << "Color: " << color << endl;
-        cout << endl;
+        cout << name << " (" << color << ", " << age << ")" << endl;
     }
 };
 
@@ -215,10 +211,10 @@ int main()
     for (int i = 0; i < size; ++i) // loop to help create Goat objects according to "size"
         list.push_back(Goat()); // push_back() function call, adds Goat objects to the end of the linked list
     
-    cout << "List forward: ";
+    cout << "List forward: " << endl;
     list.print();
 
-    cout << "List backward: ";
+    cout << "List backward: " << endl;
     list.print_reverse();
 
     return 0;
