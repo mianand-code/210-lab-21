@@ -113,9 +113,9 @@ private:
         Goat data; // modifying from int to "Goat" object
         Node* prev;
         Node* next;
-        Node(Goat val, Node* p = nullptr, Node* n = nullptr) // modifying constructor from int parameter to "Goat" object parameter
+        Node(Goat info, Node* p = nullptr, Node* n = nullptr) // modifying constructor from int parameter to "Goat" object parameter
         {
-            data = val;
+            data = info;
             prev = p;
             next = n;
         }
@@ -128,9 +128,9 @@ public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
-    void push_back(Goat value) // modifying from int parameter to "Goat" object parameter
+    void push_back(Goat info) // modifying from int parameter to "Goat" object parameter
     {
-        Node* newNode = new Node(value);
+        Node* newNode = new Node(info);
         if (!tail) // if there's no tail, the list is empty
             head = tail = newNode;
         else 
@@ -141,9 +141,9 @@ public:
         }
     }
 
-    void push_front(Goat value) // modifying from int parameter to "Goat" object parameter
+    void push_front(Goat info) // modifying from int parameter to "Goat" object parameter
     {
-        Node* newNode = new Node(value);
+        Node* newNode = new Node(info);
         if (!head) // if there's no head, the list is empty
             head = tail = newNode;
         else 
@@ -157,7 +157,11 @@ public:
     void print() 
     {
         Node* current = head;
-        if (!current) return;
+        if (!current) // modifying to display "List is empty" if current is equal to nullptr
+        {
+            cout << "List is empty." << endl;
+            return; // exit function
+        }
 
         while (current) 
         {
@@ -170,7 +174,11 @@ public:
     void print_reverse() 
     {
         Node* current = tail;
-        if (!current) return;
+        if (!current) // modifying to display "List is empty" if current is equal to nullptr
+        {
+            cout << "List is empty." << endl;
+            return; // exit function
+        }
 
         while (current) 
         {
@@ -196,8 +204,11 @@ int main()
 {
     srand(time(0)); // needed as the first line in main() to generate random numbers
     
-    DoublyLinkedList list;
-    int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
+    DoublyLinkedList list; // creation of a DoublyLinkedList object
+
+    // declaration and initialization of a int variable "size", that will generate a random # between 5 - 20
+    // this random value will be the number of Goat objects created
+    int size = rand() % (MAX_OBJECT-MIN_OBJECT+1) + MIN_OBJECT; 
 
     for (int i = 0; i < size; ++i)
         list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
