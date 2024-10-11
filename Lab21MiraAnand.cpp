@@ -89,12 +89,12 @@ public:
     string getName() const              { return name; }
     string getColor() const             { return color; }
 
-    // creating a member print() method to print the object's data
-    // void print() function header
+    // creating a member printGoat() method to print the object's data
+    // void printGoat() function header
     // DESCRIPTION: this function outputs the age, name, and color for each Goat object
     // ARGUMENTS: no arguments/parameters
     // RETURNS: nothing, void function
-    void print()
+    void printGoat()
     {
         cout << "GOAT:" << endl;
         cout << "Age: " << age << ", ";
@@ -165,7 +165,7 @@ public:
 
         while (current) 
         {
-            cout << current->data << " ";
+            current->data.printGoat();
             current = current->next;
         }
         cout << endl;
@@ -182,12 +182,14 @@ public:
 
         while (current) 
         {
-            cout << current->data << " ";
+            current->data.printGoat();
             current = current->prev;
         }
         cout << endl;
     }
 
+    // class destructor
+    // do not need to call it in main(), since it is automatically called when an object goes out of scope
     ~DoublyLinkedList() 
     {
         while (head) 
@@ -210,19 +212,14 @@ int main()
     // this random value will be the number of Goat objects created
     int size = rand() % (MAX_OBJECT-MIN_OBJECT+1) + MIN_OBJECT; 
 
-    for (int i = 0; i < size; ++i)
-        list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
+    for (int i = 0; i < size; ++i) // loop to help create Goat objects according to "size"
+        list.push_back(Goat()); // push_back() function call, adds Goat objects to the end of the linked list
     
     cout << "List forward: ";
     list.print();
 
     cout << "List backward: ";
     list.print_reverse();
-
-    cout << "Deleting list, then trying to print.\n";
-    list.~DoublyLinkedList();
-    cout << "List forward: ";
-    list.print();
 
     return 0;
 }
