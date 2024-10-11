@@ -2,6 +2,13 @@
 // Module 7, Lesson: Doubly-Linked Lists & Class Destructors, Assignment: Goat Herd Manager 3000
 // IDE used: Visual Studio Code for Mac
 
+// Removing insert_after() and delete_node() functions from the DoublyLinkedClass since they do not apply to assignment instructions
+// The purpose of this assignment is to exercise the Goat class in conjunction with the DoublyLinkedList class
+// We do this by adding Goat objects to a linked list, which requires the use of the push_back() function that is a part of the DoublyLinkedList class
+// Our main() function exercises the default constructor of the Goat class in conjunction with the push_back(), print(), and print_reverse() functions of the DoublyLinkedList class
+// We could also exercise our full parameter constructor and setters/getters from the Goat class in main() as well
+// - Including these in our Goat class is beneficial because it makes our class fully functional and able to stand on its own
+
 #include <cstdlib> // needed to generate a random number
 #include <ctime> // needed to generate a random number
 #include <iostream>
@@ -17,7 +24,6 @@ const int MAX_OBJECT = 20; // represents the maximum # of Goat objects to be cre
 const int AGE_MAX = 20; // represents the maximum age to be assigned to a Goat object, will be used to generate a random #
 
 // creation of Goat Class
-// also including setters, getters, and a member print() method so that the class is fully functional, even on its own
 class Goat {
 // private member variables
 private:
@@ -25,11 +31,11 @@ private:
     string name; // to hold goat's name
     string color; // to hold color of goat
 
-    // creation and initialization of a 15-element string array that holds a list of names
+    // creation and initialization of a 15-element string array that holds a list of names, names were randomly generated
     string names[SIZE] = {"Billy", "Nanny", "Daisy", "Ginger", "Coco", 
                         "Luna", "Misty", "Shadow", "Pepper", "Max", 
                         "Fluffy", "Snowy", "Bella", "Rocky", "Duke"};
-    // creation and initialization of a 15-element string array that holds a list of colors
+    // creation and initialization of a 15-element string array that holds a list of colors, colors were randomly generated
     string colors[SIZE] = {"Black", "White", "Brown", "Gray", "Gold", 
                         "Red", "Blue", "Yellow", "Pink", "Purple", 
                         "Green", "Mauve", "Teal", "Orange", "Tan"};
@@ -107,7 +113,7 @@ private:
         Goat data; // modifying from int to "Goat" object
         Node* prev;
         Node* next;
-        Node(Goat val, Node* p = nullptr, Node* n = nullptr) 
+        Node(Goat val, Node* p = nullptr, Node* n = nullptr) // modifying constructor from int parameter to "Goat" object parameter
         {
             data = val;
             prev = p;
@@ -122,7 +128,7 @@ public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
-    void push_back(int value) 
+    void push_back(Goat value) // modifying from int parameter to "Goat" object parameter
     {
         Node* newNode = new Node(value);
         if (!tail) // if there's no tail, the list is empty
@@ -135,7 +141,7 @@ public:
         }
     }
 
-    void push_front(int value) 
+    void push_front(Goat value) // modifying from int parameter to "Goat" object parameter
     {
         Node* newNode = new Node(value);
         if (!head) // if there's no head, the list is empty
@@ -146,63 +152,6 @@ public:
             head->prev = newNode;
             head = newNode;
         }
-    }
-
-    void insert_after(int value, int position) 
-    {
-        if (position < 0) 
-        {
-            cout << "Position must be >= 0." << endl;
-            return;
-        }
-
-        Node* newNode = new Node(value);
-        if (!head) 
-        {
-            head = tail = newNode;
-            return;
-        }
-
-        Node* temp = head;
-        for (int i = 0; i < position && temp; ++i)
-            temp = temp->next;
-        
-        if (!temp) 
-        {
-            cout << "Position exceeds list size. Node not inserted.\n";
-            delete newNode;
-            return;
-        }
-        newNode->next = temp->next;
-        newNode->prev = temp;
-        if (temp->next)
-            temp->next->prev = newNode;
-        else
-            tail = newNode; // Inserting at the end
-        temp->next = newNode;
-    }
-
-    void delete_node(int value) 
-    {
-        if (!head) return; // Empty list
-
-        Node* temp = head;
-        while (temp && temp->data != value)
-            temp = temp->next;
-        
-        if (!temp) return; // Value not found
-
-        if (temp->prev)
-            temp->prev->next = temp->next;
-        else
-            head = temp->next; // Deleting the head
-
-        if (temp->next)
-            temp->next->prev = temp->prev;
-        else
-            tail = temp->prev; // Deleting the tail
-    
-        delete temp;
     }
 
     void print() 
